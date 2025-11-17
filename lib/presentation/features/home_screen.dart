@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architectures_showcase/core/model/recipe_model.dart';
-import 'package:flutter_architectures_showcase/recipe_widget.dart';
+import 'package:flutter_architectures_showcase/data/model/recipe_model.dart';
+import 'package:flutter_architectures_showcase/presentation/features/widgets/recipe_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

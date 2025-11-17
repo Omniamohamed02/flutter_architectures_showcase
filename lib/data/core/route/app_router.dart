@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architectures_showcase/core/route/routes.dart';
-import 'package:flutter_architectures_showcase/home_screen.dart';
-import 'package:flutter_architectures_showcase/recipe_screen.dart';
+import 'package:flutter_architectures_showcase/data/core/route/routes.dart';
+import 'package:flutter_architectures_showcase/presentation/features/home_screen.dart';
+import 'package:flutter_architectures_showcase/presentation/features/recipe_screen.dart';
 
 class AppRouter {
  static Route? generateRoute(RouteSettings settings){

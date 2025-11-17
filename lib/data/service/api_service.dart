@@ -1,5 +1,6 @@
-import 'package:flutter_architectures_showcase/core/constant.dart';
-import 'package:flutter_architectures_showcase/core/model/recipe_model.dart';
+import 'package:flutter_architectures_showcase/data/core/constant.dart';
+import 'package:flutter_architectures_showcase/data/model/recipe_model.dart';
+import 'package:flutter_architectures_showcase/data/service/api_result.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 import 'package:dio/dio.dart';
