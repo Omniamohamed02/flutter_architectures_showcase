@@ -1,5 +1,4 @@
 import 'package:flutter_architectures_showcase/data/mapper/recipe_mapper.dart';
-import 'package:flutter_architectures_showcase/data/model/recipe_model.dart';
 import 'package:flutter_architectures_showcase/data/service/api_result.dart';
 import 'package:flutter_architectures_showcase/data/service/api_service.dart';
 import 'package:flutter_architectures_showcase/doman/entities/recipe_entity.dart';

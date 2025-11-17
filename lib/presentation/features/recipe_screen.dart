@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architectures_showcase/data/model/recipe_model.dart';
-
-
+import 'package:flutter_architectures_showcase/doman/entities/recipe_entity.dart';
 class RecipeScreen extends StatelessWidget {
-  //final RecipeModel recipe;
+  final RecipeEntity recipe;
 
-  const RecipeScreen({super.key, r});
+  const RecipeScreen({super.key, r, required this.recipe});
 
   @override
   Widget build(BuildContext context) {
-    //List<String> ingredients = recipe.ingredients;
-    //List<String> instructions = recipe.instructions;
+    List<String> ingredients = recipe.ingredients;
+    List<String> instructions = recipe.instructions;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -24,7 +22,7 @@ class RecipeScreen extends StatelessWidget {
                     height: MediaQuery.of(context).size.width - 20,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: NetworkImage('https://cdn.dummyjson.com/recipe-images/1.webp'),
+                        image: NetworkImage(recipe.image),
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -49,7 +47,7 @@ class RecipeScreen extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+              padding: const EdgeInsets.symmetric(vertical: 10 ,horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -64,15 +62,17 @@ class RecipeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Text('recipe.name', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  Center(child: Text(recipe.name, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold))),
                   const SizedBox(height: 15),
                    Row(
                     children: [
                       const Icon(Icons.timer, color: Colors.grey, size: 20),
-                      Text('{recipe.cookTimeMinutes.toString()} Min', style:const TextStyle(color: Colors.grey, fontSize: 16)),
+                       const  SizedBox(width: 10),
+                      Text('${recipe.cookTimeMinutes.toString()} Min', style:const TextStyle(color: Colors.grey, fontSize: 16)),
                       const  SizedBox(width: 30),
                       const Icon(Icons.restaurant, color: Colors.grey, size: 18),
-                      Text('recipe.cuisine', style:const TextStyle(color: Colors.grey, fontSize: 16)),
+                       const  SizedBox(width: 10),
+                      Text(recipe.cuisine, style:const TextStyle(color: Colors.grey, fontSize: 16)),
                     ],
                   ),
                   const SizedBox(height: 10,),
@@ -80,42 +80,31 @@ class RecipeScreen extends StatelessWidget {
                    ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 5,
-                      //ingredients.length,
+                      itemCount: ingredients.length,
                       itemBuilder: (context, index) {
-                       // final ingredient = ingredients[index];
-                        return Card(
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                            elevation: 2.0,
-                            shadowColor: Colors.grey[700],
-                            child:ListTile(
-                              title: Text('ingredient'),
-                              leading:const  Icon(Icons.shopping_cart),
-                            ));
+                        final ingredient = ingredients[index];
+                        return ListTile(
+                          title: Text(ingredient),
+                          leading:const  Icon(Icons.shopping_cart),
+                        );
                       },
                     ),
-
+        
                   const  SizedBox(height: 10,),
                   const  Text('Instructions:', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                   ListView.builder(
                       shrinkWrap: true,
                       physics:const NeverScrollableScrollPhysics(),
-                      itemCount: 5,
-                      //instructions.length,
+                      itemCount:instructions.length,
                       itemBuilder: (context, index) {
-                       // final instruction = instructions[index];
-                        return Card(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                          elevation: 2.0,
-                          shadowColor: Colors.grey[700],
-                          child: ListTile(
-                            title: Text('instruction'),
-                            leading: const Icon(Icons.outdoor_grill),
-                          ),
+                       final instruction = instructions[index];
+                        return ListTile(
+                          title: Text(instruction),
+                          leading: const Icon(Icons.outdoor_grill),
                         );
                       },
                     ),
-
+        
                 ],
               ),
             ),

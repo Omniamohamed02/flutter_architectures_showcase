@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architectures_showcase/data/model/recipe_model.dart';
 import 'package:flutter_architectures_showcase/data/core/route/routes.dart';
+import 'package:flutter_architectures_showcase/doman/entities/recipe_entity.dart';
 
 
 class RecipeWidget extends StatelessWidget {
-  //final RecipeModel recipe;
-  //final VoidCallback onTap;
-  const RecipeWidget({super.key, });
+  final RecipeEntity recipe;
+  final VoidCallback onTap;
+  const RecipeWidget({super.key, required this.recipe, required this.onTap, });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector (
-      onTap: (){
-        Navigator.pushNamed(context, Routes.recipesScreen);
-      },
+      onTap: onTap,
       child: Card(
         shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 5,
@@ -23,7 +21,7 @@ class RecipeWidget extends StatelessWidget {
             ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: Image.network(
-                       'https://cdn.dummyjson.com/recipe-images/1.webp',
+                       recipe.image,
                   height: 200,
                   width: double.infinity,
                   fit: BoxFit.cover,
@@ -53,8 +51,7 @@ class RecipeWidget extends StatelessWidget {
                         size: 18,
                       ),
                       Text(
-                       ' 4.4',
-                       // recipe.rating.toString(),
+                        recipe.rating.toString(),
                         style: TextStyle(color: Colors.white),
                       )
                     ],
@@ -66,7 +63,7 @@ class RecipeWidget extends StatelessWidget {
                 child: Row(
                   children: [
                     Icon(Icons.whatshot,color: Colors.white,),
-                    Text('cal',style: TextStyle(color: Colors.white),),
+                    Text('${recipe.caloriesPerServing}cal',style: TextStyle(color: Colors.white),),
                   ],
                 )),
             Positioned(
@@ -75,8 +72,8 @@ class RecipeWidget extends StatelessWidget {
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('recipe.name',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
-                Text('{recipe.ingredients.length} ingredients',style: TextStyle(color: Colors.white),)
+                Text(recipe.name,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 18),),
+                Text('${recipe.ingredients.length} ingredients',style: TextStyle(color: Colors.white),)
               ],
             )),
             Positioned(

@@ -1,10 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_architectures_showcase/data/core/di/di.dart';
 import 'package:flutter_architectures_showcase/data/core/route/app_router.dart';
 import 'package:flutter_architectures_showcase/data/core/route/routes.dart';
 
-void main() {
- // WidgetsFlutterBinding.ensureInitialized();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Di.init();
   runApp(MyApp());
 }
 
