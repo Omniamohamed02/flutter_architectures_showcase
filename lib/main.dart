@@ -2,10 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architectures_showcase/data/core/route/app_router.dart';
 import 'package:flutter_architectures_showcase/data/core/route/routes.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
  // WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 

@@ -10,16 +10,11 @@ class RecipeRepoImpl implements RecipeRepoInterface {
   RecipeRepoImpl(this._apiService);
 
   @override
-  Future<ApiResult<List<RecipeEntity>>> getRecipes() async {
-    try {
+  Future<List<RecipeEntity>> getRecipes() async {
+   
       
       final model = await _apiService.getRecipes();
       final entities = model.toEntity();
-
-      return ApiResult.success(entities);
-
-    } catch (e) { 
-      return ApiResult.failure(e.toString());
-    }
+           return entities;
   }
-}
+  }

@@ -44,6 +44,8 @@ dependencies:
   flutter_screenutil: ^5.9.3
   #storage
   hive: ^2.2.3
+  #state management
+  flutter_riverpod: ^2.6.1
 
 
 dev_dependencies:

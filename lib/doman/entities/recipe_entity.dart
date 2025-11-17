@@ -34,17 +34,7 @@ class RecipeEntity {
     required this.reviewCount,
     required this.mealType,
   });
-   @override
-  String toString() {
-    return 'RecipeEntity('
-        'id: $id, '
-        'name: $name, '
-        'prepTime: $prepTimeMinutes, '
-        'cookTime: $cookTimeMinutes, '
-        'servings: $servings, '
-        'difficulty: $difficulty'
-        ')';
-  }
+  
 }
 
 
